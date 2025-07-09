@@ -1,0 +1,175 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f3f3f3;
+  color: #333;
+}
+
+.App {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.search-box input {
+  width: 60%;
+  padding: 0.6rem;
+  font-size: 1rem;
+}
+
+.search-box button {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+
+.results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.result-card {
+  background: white;
+  padding: 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.2s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.result-card:hover {
+  transform: scale(1.03);
+}
+
+.result-card img {
+  max-width: 100%;
+  height: 220px;
+  object-fit: contain;
+}
+
+.book-info h3 {
+  margin: 0.5rem 0 0.2rem;
+  font-size: 1rem;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-inner {
+  background: white;
+  padding: 2rem;
+  width: 80%;
+  max-width: 600px;
+  position: relative;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  margin-bottom: 1rem;
+  padding: 0.4rem 1rem;
+  border: none;
+  background-color: #444;
+  color: #fff;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.theme-toggle:hover {
+  background-color: #222;
+}
+
+/* Dark Mode Styles */
+.dark {
+  background-color: #121212;
+  color: #f3f3f3;
+}
+
+.dark .search-box input,
+.dark .search-box select,
+.dark .search-box button {
+  background-color: #1e1e1e;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+.dark .result-card {
+  background-color: #1e1e1e;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+}
+
+.dark .popup-inner {
+  background-color: #1e1e1e;
+  color: #eee;
+}
+
+.category-filter {
+  margin: 1rem 0;
+}
+
+.category-filter label {
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.category-filter select {
+  padding: 0.4rem;
+  font-size: 1rem;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.pagination button {
+  padding: 0.4rem 1rem;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
