@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Popup from "./components/Popup";
 import "./styles/App.css";
 
 function App() {
   const [query, setQuery] = useState("");
   const [books, setBooks] = useState([]);
   const [searchBy, setSearchBy] = useState("intitle");
+  const [selectedBook, setSelectedBook] = useState(null);
 
   const searchBooks = async () => {
     if (!query) return;
@@ -19,6 +21,14 @@ function App() {
     } catch (error) {
       console.error("Error fetching books:", error);
     }
+  };
+
+  const openBook = (book) => {
+    setSelectedBook(book.volumeInfo);
+  };
+
+  const closePopup = () => {
+    setSelectedBook(null);
   };
 
   return (
@@ -44,7 +54,7 @@ function App() {
         {books.map((book) => {
           const volume = book.volumeInfo;
           return (
-            <div className="book" key={book.id}>
+            <div className="book" key={book.id} onClick={() => openBook(book)}>
               <img
                 src={
                   volume.imageLinks?.thumbnail ||
@@ -58,6 +68,8 @@ function App() {
           );
         })}
       </div>
+
+      {selectedBook && <Popup book={selectedBook} closePopup={closePopup} />}
     </div>
   );
 }
